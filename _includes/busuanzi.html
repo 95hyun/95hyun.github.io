@@ -1,46 +1,47 @@
 <!-- Busuanzi 방문자수 통계 스크립트 -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- Busuanzi 로딩 체크 및 fallback -->
 <script>
-// Busuanzi 스크립트를 동적으로 로드
-(function() {
-  // 페이지가 완전히 로드된 후 실행
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadBusuanzi);
-  } else {
-    loadBusuanzi();
-  }
-  
-  function loadBusuanzi() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+document.addEventListener('DOMContentLoaded', function() {
+  // Busuanzi 스크립트가 로드되었는지 확인
+  function checkBusuanzi() {
+    // 최대 10초 대기
+    var maxAttempts = 20;
+    var attempts = 0;
     
-    // 로드 실패 시 처리
-    script.onerror = function() {
+    var checkInterval = setInterval(function() {
+      attempts++;
+      
+      // Busuanzi 객체가 로드되었거나 요소에 값이 업데이트되었는지 확인
       var uvElement = document.getElementById('busuanzi_value_site_uv');
       var pvElement = document.getElementById('busuanzi_value_site_pv');
-      if (uvElement) uvElement.textContent = '?';
-      if (pvElement) pvElement.textContent = '?';
-    };
-    
-    // 스크립트 로드 완료 후 체크
-    script.onload = function() {
-      setTimeout(function() {
-        var uvElement = document.getElementById('busuanzi_value_site_uv');
-        var pvElement = document.getElementById('busuanzi_value_site_pv');
-        
-        // 값이 업데이트되지 않았으면 0으로 설정
+      
+      if (uvElement && pvElement) {
+        // 실제 숫자 값이 들어왔는지 확인
+        if (uvElement.textContent && uvElement.textContent !== '-' && uvElement.textContent !== '' && 
+            pvElement.textContent && pvElement.textContent !== '-' && pvElement.textContent !== '') {
+          clearInterval(checkInterval);
+          return;
+        }
+      }
+      
+      // 최대 시도 횟수 초과 시 기본값 설정
+      if (attempts >= maxAttempts) {
+        clearInterval(checkInterval);
         if (uvElement && (uvElement.textContent === '-' || uvElement.textContent === '')) {
           uvElement.textContent = '1';
         }
         if (pvElement && (pvElement.textContent === '-' || pvElement.textContent === '')) {
           pvElement.textContent = '1';
         }
-      }, 3000);
-    };
-    
-    document.head.appendChild(script);
+      }
+    }, 500);
   }
-})();
+  
+  // 페이지 로드 후 즉시 체크 시작
+  checkBusuanzi();
+});
 </script>
 
 <style>
