@@ -1,0 +1,75 @@
+main:
+  - title: "Home"
+    url: "/"
+    icon: "fas fa-home"
+    
+  - title: "Categories"
+    icon: "fas fa-stream"
+    children:
+      - title: "Backend"
+        icon: "fas fa-server"
+        children:
+          - title: "Java"
+            url: "/categories/backend-java/"
+            icon: "fab fa-java"
+          - title: "Spring"
+            url: "/categories/backend-spring/"
+            icon: "fas fa-leaf"
+          - title: "Kafka"
+            url: "/categories/backend-kafka/"
+            icon: "fas fa-stream"
+          - title: "Database"
+            url: "/categories/backend-database/"
+            icon: "fas fa-database"
+            
+      - title: "Frontend"
+        icon: "fas fa-code"
+        children:
+          - title: "React"
+            url: "/categories/frontend-react/"
+            icon: "fab fa-react"
+          - title: "TypeScript"
+            url: "/categories/frontend-typescript/"
+            icon: "fab fa-js-square"
+            
+      - title: "DevOps"
+        icon: "fas fa-cogs"
+        children:
+          - title: "Monitoring"
+            url: "/categories/devops-monitoring/"
+            icon: "fas fa-chart-line"
+          - title: "Infrastructure"
+            url: "/categories/devops-infrastructure/"
+            icon: "fas fa-cloud"
+          - title: "Git"
+            url: "/categories/devops-git/"
+            icon: "fab fa-git-alt"
+            
+      - title: "Experience"
+        icon: "fas fa-graduation-cap"
+        children:
+          - title: "부트캠프"
+            url: "/categories/experience-bootcamp/"
+            icon: "fas fa-laptop-code"
+          - title: "대외활동"
+            url: "/categories/experience-activity/"
+            icon: "fas fa-users"
+            
+      - title: "AI-Tech"
+        icon: "fas fa-robot"
+        children:
+          - title: "GenAI"
+            url: "/categories/aitech-genai/"
+            icon: "fas fa-brain"
+
+  - title: "Tags"
+    url: "/tags/"
+    icon: "fas fa-tags"
+    
+  - title: "Archives"
+    url: "/archives/"
+    icon: "fas fa-archive"
+    
+  - title: "About"
+    url: "/about/"
+    icon: "fas fa-info-circle"

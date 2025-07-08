@@ -1,0 +1,30 @@
+<ul class="nav flex-column{% if include.level %} ps-{{ include.level | times: 3 }}{% endif %}">
+  {% for item in include.nav %}
+    <li class="nav-item">
+      {% if item.children %}
+        <!-- 하위 메뉴가 있는 경우 -->
+        <button class="nav-link btn btn-link w-100 text-start d-flex align-items-center justify-content-between" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#{{ item.title | downcase | replace: ' ', '-' | replace: '-tech', 'tech' }}-menu" 
+                aria-expanded="false"
+                style="border: none; background: none; text-decoration: none;">
+          <span>
+            {% if item.icon %}<i class="{{ item.icon }} me-2"></i>{% endif %}
+            {{ item.title }}
+          </span>
+          <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+        </button>
+        <div class="collapse" id="{{ item.title | downcase | replace: ' ', '-' | replace: '-tech', 'tech' }}-menu">
+          {% assign next_level = include.level | default: 1 | plus: 1 %}
+          {% include nav.html nav=item.children level=next_level %}
+        </div>
+      {% else %}
+        <!-- 일반 링크인 경우 -->
+        <a href="{{ item.url | relative_url }}" class="nav-link">
+          {% if item.icon %}<i class="{{ item.icon }} me-2"></i>{% endif %}
+          {{ item.title }}
+        </a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
