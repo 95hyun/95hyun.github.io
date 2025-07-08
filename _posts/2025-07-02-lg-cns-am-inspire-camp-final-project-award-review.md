@@ -66,17 +66,10 @@ Kubernetes가 교육과정에서 누락되었는데 멘토님 덕분에 Kubernet
 
 관제 대상을 제쳐두더라도 장애 대응 관제 시스템까지 구현해야했기에, 지금 생각해도 말이안되는 볼륨이긴하다. 그만큼 우리는 욕심이 많았고, 자신있었다.
 
-<div style="display: flex; gap: 10px;">
-  <img src="/assets/img/posts/2025-07-02-lg-cns-am-inspire-camp-final-project-award-review/3.png" alt="시퀀스 다이어그램1" style="width: 50%;">
-  <img src="/assets/img/posts/2025-07-02-lg-cns-am-inspire-camp-final-project-award-review/4.png" alt="시퀀스 다이어그램2" style="width: 50%;">
-</div>
+![시퀀스 다이어그램1](/assets/img/posts/2025-07-02-lg-cns-am-inspire-camp-final-project-award-review/3.png) ![시퀀스 다이어그램2](/assets/img/posts/2025-07-02-lg-cns-am-inspire-camp-final-project-award-review/4.png)
 *시퀀스 다이어그램(보상 트랜잭션) / Kafka DLQ 아키텍처*
 
-
-<div style="display: flex; gap: 10px;">
-  <img src="/assets/img/posts/2025-07-02-lg-cns-am-inspire-camp-final-project-award-review/5.png" alt="로그 분석 아키텍처1" style="width: 50%;">
-  <img src="/assets/img/posts/2025-07-02-lg-cns-am-inspire-camp-final-project-award-review/6.png" alt="로그 분석 아키텍처2" style="width: 50%;">
-</div>
+![로그 분석 아키텍처1](/assets/img/posts/2025-07-02-lg-cns-am-inspire-camp-final-project-award-review/5.png) ![로그 분석 아키텍처2](/assets/img/posts/2025-07-02-lg-cns-am-inspire-camp-final-project-award-review/6.png)
 *로그 / 메트릭 수집 및 분석 아키텍처*
 
 금융 시스템을 구현했기 때문에 실제 은행의 구조는 어떨까 에 대해서 조사도 많이했고, 실제처럼 전문통신, 인증서 등까지도 고려해보았으나 2개월의 프로젝트 기간의 한계로 그런 부분은 간소화해서 개발했다.
