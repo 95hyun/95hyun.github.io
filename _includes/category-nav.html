@@ -1,0 +1,147 @@
+<!-- 카테고리 네비게이션 -->
+<div class="category-nav mt-3">
+  <h6 class="text-muted px-3 mb-2">카테고리</h6>
+  
+  <!-- Backend 카테고리 -->
+  <div class="category-group">
+    <button class="btn btn-link category-toggle d-flex align-items-center justify-content-between w-100 text-start px-3 py-2" 
+            data-bs-toggle="collapse" data-bs-target="#backend-category" aria-expanded="false">
+      <span><i class="fas fa-server me-2"></i>Backend</span>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </button>
+    <div class="collapse" id="backend-category">
+      <div class="category-sub ps-4">
+        <a href="/categories/backend-java/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fab fa-java me-2"></i>Java
+        </a>
+        <a href="/categories/backend-spring/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fas fa-leaf me-2"></i>Spring
+        </a>
+        <a href="/categories/backend-kafka/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fas fa-stream me-2"></i>Kafka
+        </a>
+        <a href="/categories/backend-database/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fas fa-database me-2"></i>Database
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Frontend 카테고리 -->
+  <div class="category-group">
+    <button class="btn btn-link category-toggle d-flex align-items-center justify-content-between w-100 text-start px-3 py-2" 
+            data-bs-toggle="collapse" data-bs-target="#frontend-category" aria-expanded="false">
+      <span><i class="fas fa-code me-2"></i>Frontend</span>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </button>
+    <div class="collapse" id="frontend-category">
+      <div class="category-sub ps-4">
+        <a href="/categories/frontend-react/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fab fa-react me-2"></i>React
+        </a>
+        <a href="/categories/frontend-typescript/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fab fa-js-square me-2"></i>TypeScript
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DevOps 카테고리 -->
+  <div class="category-group">
+    <button class="btn btn-link category-toggle d-flex align-items-center justify-content-between w-100 text-start px-3 py-2" 
+            data-bs-toggle="collapse" data-bs-target="#devops-category" aria-expanded="false">
+      <span><i class="fas fa-cogs me-2"></i>DevOps</span>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </button>
+    <div class="collapse" id="devops-category">
+      <div class="category-sub ps-4">
+        <a href="/categories/devops-monitoring/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fas fa-chart-line me-2"></i>Monitoring
+        </a>
+        <a href="/categories/devops-infrastructure/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fas fa-cloud me-2"></i>Infrastructure
+        </a>
+        <a href="/categories/devops-git/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fab fa-git-alt me-2"></i>Git
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience 카테고리 -->
+  <div class="category-group">
+    <button class="btn btn-link category-toggle d-flex align-items-center justify-content-between w-100 text-start px-3 py-2" 
+            data-bs-toggle="collapse" data-bs-target="#experience-category" aria-expanded="false">
+      <span><i class="fas fa-graduation-cap me-2"></i>Experience</span>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </button>
+    <div class="collapse" id="experience-category">
+      <div class="category-sub ps-4">
+        <a href="/categories/experience-bootcamp/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fas fa-laptop-code me-2"></i>부트캠프
+        </a>
+        <a href="/categories/experience-activity/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fas fa-users me-2"></i>대외활동
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI-Tech 카테고리 -->
+  <div class="category-group">
+    <button class="btn btn-link category-toggle d-flex align-items-center justify-content-between w-100 text-start px-3 py-2" 
+            data-bs-toggle="collapse" data-bs-target="#aitech-category" aria-expanded="false">
+      <span><i class="fas fa-robot me-2"></i>AI-Tech</span>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </button>
+    <div class="collapse" id="aitech-category">
+      <div class="category-sub ps-4">
+        <a href="/categories/aitech-genai/" class="d-block py-1 px-3 text-decoration-none">
+          <i class="fas fa-brain me-2"></i>GenAI
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.category-nav .category-toggle {
+  border: none;
+  color: var(--text-muted-color);
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.category-nav .category-toggle:hover {
+  color: var(--text-color);
+  background-color: var(--btn-hover-bg);
+}
+
+.category-nav .category-sub a {
+  color: var(--text-muted-color);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.category-nav .category-sub a:hover {
+  color: var(--link-color);
+  background-color: var(--btn-hover-bg);
+}
+
+.category-nav .toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.category-nav .category-toggle[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.category-nav .category-group {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-nav .category-group:last-child {
+  border-bottom: none;
+}
+</style>

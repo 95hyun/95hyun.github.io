@@ -1,0 +1,83 @@
+<!-- The Side Bar -->
+
+<aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper">
+    <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
+      {%- if site.avatar != empty and site.avatar -%}
+        {%- capture avatar_url -%}
+          {%- if site.avatar contains '://' -%}
+            {{ site.avatar }}
+          {%- else -%}
+            {{ site.avatar | relative_url }}
+          {%- endif -%}
+        {%- endcapture -%}
+        <img src="{{ avatar_url }}" alt="avatar" onerror="this.style.display='none'">
+      {%- endif -%}
+    </a>
+
+    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
+  </header>
+  <!-- .profile-wrapper -->
+
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
+      <!-- home -->
+      <li class="nav-item">
+        <a href="{{ '/' | relative_url }}" class="nav-link">
+          <i class="fa-fw fas fa-home"></i>
+          <span>홈</span>
+        </a>
+      </li>
+      <!-- the real tabs -->
+      {%- for tab in site.tabs -%}
+        <li class="nav-item">
+          <a href="{{ tab.url | relative_url }}" class="nav-link">
+            <i class="fa-fw {{ tab.icon }}"></i>
+            <span>{{ tab.title }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    <!-- 카테고리 네비게이션 추가 -->
+    {% include category-nav.html %}
+  </nav>
+
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100">
+    <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+      <i class="fas fa-adjust"></i>
+    </button>
+
+    {%- if site.data.contact.size > 0 -%}
+      {%- for entry in site.data.contact -%}
+        {%- capture url -%}
+          {%- if entry.type == 'github' -%}
+            https://github.com/{{ site.github.username }}
+          {%- elsif entry.type == 'twitter' -%}
+            https://twitter.com/{{ site.twitter.username }}
+          {%- elsif entry.type == 'email' -%}
+            {% assign email = site.email | split: '@' %}
+            javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
+          {%- elsif entry.type == 'rss' -%}
+            {{ '/feed.xml' | relative_url }}
+          {%- else -%}
+            {{ entry.url }}
+          {%- endif -%}
+        {%- endcapture -%}
+
+        {%- if url -%}
+          <a
+            href="{{ url }}"
+            aria-label="{{ entry.type }}"
+            {%- unless entry.noblank %} target="_blank" rel="noopener noreferrer" {%- endunless %}
+          >
+            <i class="{{ entry.icon }}"></i>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+  <!-- .sidebar-bottom -->
+</aside>
+<!-- #sidebar -->
