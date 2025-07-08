@@ -78,31 +78,34 @@ Jekyll의 highlight 블록 사용:
    - 적절한 파일명으로 `_posts/` 폴더에 저장
 
 ### 3. 카테고리 매핑 (현재 블로그 구조)
+**중요**: Jekyll 카테고리는 소문자와 슬래시 형식 사용
+
 **Backend**:
-- [Backend, Java] → Backend > Java
-- [Backend, Spring] → Backend > Spring  
-- [Backend, Kafka] → Backend > Kafka
-- [Backend, Database] → Backend > Database
+- [backend/java] → Backend > Java
+- [backend/spring] → Backend > Spring  
+- [backend/kafka] → Backend > Kafka
+- [backend/database] → Backend > Database
 
 **Frontend**:
-- [Frontend, React] → Frontend > React
-- [Frontend, TypeScript] → Frontend > TypeScript
+- [frontend/react] → Frontend > React
+- [frontend/typescript] → Frontend > TypeScript
 
 **DevOps**:
-- [DevOps, Monitoring] → DevOps > Monitoring
-- [DevOps, Infrastructure] → DevOps > Infrastructure
-- [DevOps, Git] → DevOps > Git
+- [devops/monitoring] → DevOps > Monitoring
+- [devops/infrastructure] → DevOps > Infrastructure
+- [devops/git] → DevOps > Git
 
 **Experience**:
-- [Experience, Bootcamp] → Experience > 부트캠프
-- [Experience, Activity] → Experience > 대외활동
+- [experience/bootcamp] → Experience > 부트캠프
+- [experience/activity] → Experience > 대외활동
 
 **AI-Tech**:
-- [AI-Tech, GenAI] → AI-Tech > GenAI
+- [aitech/genai] → AI-Tech > GenAI
 
 **카테고리 판단 기준**:
-- 사용자가 "Experience/activity" 형식으로 지정하면 [Experience, Activity]로 변환
-- 단일 카테고리 지정 시 적절한 하위 카테고리 추천
+- 사용자가 "Experience/activity" 형식으로 지정하면 [experience/activity]로 변환
+- 모든 카테고리는 소문자, 슬래시 형식으로 작성
+- 카테고리 페이지의 category 필드와 정확히 매칭되어야 함
 
 ### 4. 주의사항
 - 모든 포스트에 `layout: post` 필수 포함
