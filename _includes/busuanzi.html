@@ -2,58 +2,94 @@
 <script>
 // Busuanzi 스크립트를 동적으로 로드
 (function() {
-  var script = document.createElement('script');
-  script.async = true;
-  script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+  // 페이지가 완전히 로드된 후 실행
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadBusuanzi);
+  } else {
+    loadBusuanzi();
+  }
   
-  // 스크립트 로드 완료 후 숫자 표시
-  script.onload = function() {
-    // 로딩 상태 제거
-    var uvElement = document.getElementById('busuanzi_value_site_uv');
-    var pvElement = document.getElementById('busuanzi_value_site_pv');
+  function loadBusuanzi() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
     
-    if (uvElement && uvElement.textContent === '-') {
+    // 로드 실패 시 처리
+    script.onerror = function() {
+      var uvElement = document.getElementById('busuanzi_value_site_uv');
+      var pvElement = document.getElementById('busuanzi_value_site_pv');
+      if (uvElement) uvElement.textContent = '?';
+      if (pvElement) pvElement.textContent = '?';
+    };
+    
+    // 스크립트 로드 완료 후 체크
+    script.onload = function() {
       setTimeout(function() {
-        if (uvElement.textContent === '-') {
-          uvElement.textContent = '0';
+        var uvElement = document.getElementById('busuanzi_value_site_uv');
+        var pvElement = document.getElementById('busuanzi_value_site_pv');
+        
+        // 값이 업데이트되지 않았으면 0으로 설정
+        if (uvElement && (uvElement.textContent === '-' || uvElement.textContent === '')) {
+          uvElement.textContent = '1';
         }
-        if (pvElement.textContent === '-') {
-          pvElement.textContent = '0';
+        if (pvElement && (pvElement.textContent === '-' || pvElement.textContent === '')) {
+          pvElement.textContent = '1';
         }
-      }, 2000);
-    }
-  };
-  
-  document.head.appendChild(script);
+      }, 3000);
+    };
+    
+    document.head.appendChild(script);
+  }
 })();
 </script>
 
 <style>
-/* 방문자수 통계 스타일링 */
+/* 방문자수 통계 스타일링 - Chirpy 테마 호환 */
 .visitor-stats {
-  border-top: 1px solid var(--border-color);
-  margin-top: auto;
+  border-top: 1px solid var(--sidebar-border-color, var(--border-color));
+  font-size: 0.8rem;
 }
 
-.visitor-stats .stats-item {
-  line-height: 1.4;
+.visitor-stats i {
+  color: var(--text-muted-color);
+  opacity: 0.7;
 }
 
-/* 로딩 중 애니메이션 */
-#busuanzi_value_site_uv, #busuanzi_value_site_pv {
-  min-width: 20px;
+.visitor-stats small {
+  color: var(--text-muted-color);
+  font-weight: 400;
+}
+
+/* Busuanzi 값 스타일링 */
+#busuanzi_value_site_uv, 
+#busuanzi_value_site_pv {
+  color: var(--text-color);
+  font-weight: 500;
+  min-width: 1rem;
   display: inline-block;
-  transition: color 0.3s ease;
 }
 
-/* 로딩 애니메이션 */
-.visitor-stats .stats-item span[id*="busuanzi"]:empty:after {
+/* 로딩 상태 */
+#busuanzi_value_site_uv:empty:before,
+#busuanzi_value_site_pv:empty:before {
   content: "...";
+  color: var(--text-muted-color);
   animation: loading 1.5s infinite;
 }
 
 @keyframes loading {
   0%, 60%, 100% { opacity: 1; }
-  30% { opacity: 0.3; }
+  30% { opacity: 0.4; }
+}
+
+/* 반응형 - 모바일에서 더 작게 */
+@media (max-width: 576px) {
+  .visitor-stats {
+    font-size: 0.75rem;
+  }
+  
+  .visitor-stats i {
+    font-size: 0.7rem;
+  }
 }
 </style>
