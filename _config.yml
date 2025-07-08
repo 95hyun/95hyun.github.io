@@ -55,6 +55,26 @@ jekyll-archives:
     category: /categories/:name/
     tag: /tags/:name/
 
+# Blog Categories Structure
+categories:
+  Backend:
+    - Java
+    - Spring  
+    - Kafka
+    - Database
+  Frontend:
+    - React
+    - TypeScript
+  DevOps:
+    - Monitoring
+    - Infrastructure
+    - Git
+  Experience:
+    - 부트캠프
+    - 대외활동
+  AI-Tech:
+    - GenAI
+
 # Timezone
 timezone: Asia/Seoul
 
