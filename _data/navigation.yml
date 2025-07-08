@@ -70,13 +70,13 @@ main:
         icon: "fas fa-lightbulb"
 
   - title: "Tags"
-    url: "/tags/"
+    url: "/tabs/tags/"
     icon: "fas fa-tags"
     
   - title: "Archives"
-    url: "/archives/"
+    url: "/tabs/archives/"
     icon: "fas fa-archive"
     
   - title: "About"
-    url: "/about/"
+    url: "/tabs/about/"
     icon: "fas fa-info-circle"
