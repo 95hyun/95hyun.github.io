@@ -29,9 +29,65 @@ twitter_username:
 github_username:  95hyun
 
 # Build settings
-theme: minima
+theme: jekyll-theme-chirpy
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-archives
+
+# Chirpy specific settings
+paginate: 10
+paginate_path: "/posts/page:num/"
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+# Timezone
+timezone: Asia/Seoul
+
+# Language
+lang: ko-KR
+
+# Social settings
+social:
+  name: 95hyun
+  email: your-email@example.com
+  links:
+    - https://github.com/95hyun
+
+# Web analytics
+google_analytics:
+  id: # Google Analytics ID
+
+# Disqus comments
+disqus:
+  shortname: # Disqus shortname
+
+# Avatar
+avatar: # Avatar image path
+
+# TOC
+toc: true
+
+# Comments
+comments:
+  active: # giscus, disqus, utterances
+  
+# Math
+math: true
+
+# Chart
+mermaid: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
