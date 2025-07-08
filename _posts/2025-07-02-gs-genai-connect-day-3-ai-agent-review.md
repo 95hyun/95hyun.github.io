@@ -12,7 +12,7 @@ toc_sticky: true
 
 쾌적하고 개방감있는 발표 공간에서 듣게 되어 더욱더 몰입감 있었다. 한층이 GS 52g 팀 사무 공간인것 같은데.. GS는 굉장히 전통적인 기업인줄로만 알았지만 굉장히 영(?)하고 일하고 싶은 공간이었다!
 
-![발표 공간](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/venue.jpg)
+![발표 공간](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/venue.jpeg)
 *실내 발표 공간, 밑에는 잔디깔려있음*
 
 ![크라이치즈 버거](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/burger.png)
@@ -35,7 +35,7 @@ toc_sticky: true
 
 Agent로 핫한 올해, 나는 커서보다 Claude MCP를 주로 활용해왔다. 할루시네이션도 줄고, 편하긴 엄청 편한데 한번쯤 해보고 지나칠만한 주제인 MCP의 보안에 대한 내용을 들을 수 있었다.
 
-![보안 이슈](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/security.jpg)
+![보안 이슈](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/security.jpeg)
 *하기사, 편리함과 보안은 양립할 수 없다고 하던가..*
 
 Leo님께서 지적하신 **MCP의 보안 취약점**은 아래와 같다.
@@ -92,7 +92,7 @@ def add(...):
 ## 💼 비즈니스 적용 고.군.분.투.
 **브레인크루 CEO 이경록 대표님**
 
-![고군분투](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/struggle.jpg)
+![고군분투](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/struggle.jpeg)
 *고.군.분.투.*
 
 테디님의 AI의 비지니스 적용을 위해 고군분투 하신 내용과 노하우들에 대한 연사였다. RAG, LangChain, LangGraph, LLM, 휴먼 인더 루프 등 AI 용어들이 많이 나왔는데 최근 프로젝트에서 RAG를 도입하면서 느꼈던 점들이 있어 꽤나 공감하며 몰입도 있게 들을 수 있었다.
@@ -116,7 +116,7 @@ AI로 인해 개발자의 일자리가 줄 것이라는 전망에 대해 테디�
 ## 🚀 Shaping the Future of AI Assisted Development
 **Microsoft Github Copilot Lead Claire Baek**
 
-![Microsoft GitHub](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/microsoft.jpg)
+![Microsoft GitHub](/assets/img/posts/2025-07-02-gs-genai-connect-day-3/microsoft.jpeg)
 *Microsoft! Github!*
 
 Microsoft Github의 Copliot Lead, Claire Baek님의 연사는 역시 가장 반응이 뜨거웠다.
