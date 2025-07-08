@@ -37,11 +37,8 @@
       
       <div class="card-text content mt-0 mb-3">
         <p>
-          {% if include.post.description %}
-            {{ include.post.description }}
-          {% else %}
-            {{ include.post.content | strip_html | truncate: 200 }}
-          {% endif %}
+          {% include no-linenos.html content=include.post.content %}
+          {{ content | markdownify | strip_html | truncate: 200 }}
         </p>
       </div>
       
