@@ -101,13 +101,6 @@ twitter:
 # Default Open Graph image for social media sharing  
 og_image: /assets/img/og_card.png
 
-# Social settings
-social:
-  name: 95hyun
-  email: chillmyh@kakao.com
-  links:
-    - https://github.com/95hyun
-
 # Default values for posts
 defaults:
   - scope:
