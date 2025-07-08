@@ -54,6 +54,9 @@ main:
           - title: "대외활동"
             url: "/categories/experience-activity/"
             icon: "fas fa-users"
+          - title: "트러블슈팅"
+            url: "/categories/experience-troubleshooting/"
+            icon: "fas fa-wrench"
             
       - title: "AI-Tech"
         icon: "fas fa-robot"
@@ -61,6 +64,10 @@ main:
           - title: "GenAI"
             url: "/categories/aitech-genai/"
             icon: "fas fa-brain"
+            
+      - title: "Thoughts"
+        url: "/categories/thoughts/"
+        icon: "fas fa-lightbulb"
 
   - title: "Tags"
     url: "/tags/"

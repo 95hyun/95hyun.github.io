@@ -98,9 +98,13 @@ Jekyll의 highlight 블록 사용:
 **Experience**:
 - [experience/bootcamp] → Experience > 부트캠프
 - [experience/activity] → Experience > 대외활동
+- [experience/troubleshooting] → Experience > 트러블슈팅
 
 **AI-Tech**:
 - [aitech/genai] → AI-Tech > GenAI
+
+**Thoughts**:
+- [thoughts] → Thoughts
 
 **카테고리 판단 기준**:
 - 사용자가 "Experience/activity" 형식으로 지정하면 [experience/activity]로 변환
