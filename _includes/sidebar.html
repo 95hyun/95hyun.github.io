@@ -24,6 +24,22 @@
     {% include nav.html nav=site.data.navigation.main %}
   </nav>
 
+  <!-- 방문자수 통계 -->
+  <div class="visitor-stats text-center py-3 border-top">
+    <div class="stats-item mb-2">
+      <i class="fas fa-users me-1" style="color: var(--text-muted-color); font-size: 0.8rem;"></i>
+      <span style="color: var(--text-muted-color); font-size: 0.85rem;">
+        총 방문자: <span id="busuanzi_value_site_uv" style="color: var(--link-color); font-weight: 500;">-</span>명
+      </span>
+    </div>
+    <div class="stats-item">
+      <i class="fas fa-eye me-1" style="color: var(--text-muted-color); font-size: 0.8rem;"></i>
+      <span style="color: var(--text-muted-color); font-size: 0.85rem;">
+        오늘 방문: <span id="busuanzi_value_site_pv" style="color: var(--link-color); font-weight: 500;">-</span>회
+      </span>
+    </div>
+  </div>
+
   <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100">
     <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
       <i class="fas fa-adjust"></i>
@@ -61,3 +77,6 @@
   <!-- .sidebar-bottom -->
 </aside>
 <!-- #sidebar -->
+
+<!-- Busuanzi 방문자수 통계 스크립트 포함 -->
+{% include busuanzi.html %}
