@@ -119,7 +119,7 @@ disqus:
   shortname: # Disqus shortname
 
 # Avatar
-avatar: # Avatar image path
+avatar: "/assets/img/avatar.png"
 
 # TOC
 toc: true
