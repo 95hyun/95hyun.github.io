@@ -1,0 +1,125 @@
+---
+---
+
+@import 'main';
+
+/* 카테고리 페이지 포스트 미리보기 스타일 */
+#page-category {
+  .card-wrapper {
+    margin-bottom: 2rem;
+    
+    .card {
+      border: 1px solid var(--card-border-color);
+      border-radius: 0.5rem;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      
+      &:hover {
+        border-color: var(--btn-border-color);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+      }
+      
+      .preview-img {
+        max-height: 200px;
+        overflow: hidden;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover img {
+          transform: scale(1.05);
+        }
+      }
+      
+      .card-body {
+        padding: 1.25rem;
+        
+        .card-title {
+          margin-bottom: 0.75rem;
+          font-size: 1.25rem;
+          font-weight: 600;
+          
+          a {
+            color: var(--heading-color);
+            text-decoration: none;
+            
+            &:hover {
+              color: var(--link-color);
+            }
+          }
+        }
+        
+        .post-meta {
+          font-size: 0.875rem;
+          margin-bottom: 0.75rem;
+          
+          a {
+            color: var(--text-muted-color);
+            text-decoration: none;
+            
+            &:hover {
+              color: var(--link-color);
+            }
+          }
+        }
+        
+        .card-text {
+          color: var(--text-color);
+          line-height: 1.6;
+          
+          p {
+            margin-bottom: 0;
+          }
+        }
+        
+        .post-tail-wrapper {
+          margin-top: auto;
+          
+          .post-tags {
+            .post-tag {
+              display: inline-block;
+              padding: 0.25rem 0.5rem;
+              margin: 0.125rem 0.25rem 0.125rem 0;
+              background-color: var(--tag-bg);
+              color: var(--tag-color);
+              border-radius: 0.25rem;
+              font-size: 0.75rem;
+              text-decoration: none;
+              transition: all 0.3s ease;
+              
+              &:hover {
+                background-color: var(--tag-hover-bg);
+                color: var(--tag-hover-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  #page-category {
+    .card-wrapper .card {
+      .preview-img {
+        max-height: 150px;
+      }
+      
+      .card-body {
+        padding: 1rem;
+        
+        .card-title {
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+}
