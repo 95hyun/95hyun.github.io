@@ -43,19 +43,19 @@ Kubernetes 클러스터는 하나 이상의 **마스터 노드(Control Plane)**�
 
 > **즉, 마스터노드 = 컨트롤플레인 역할을 하는 노드로, 실질적으로는 같은 의미로 사용된다.**
 
-### 2.1 API Server (kube-apiserver)
+### API Server (kube-apiserver)
 
 클러스터의 중앙 진입점이자, 유일한 통신 창구다. 모든 요청은 결국 API Server를 거쳐 처리되며, kubectl 명령어도 내부적으로 이 API를 호출한다. 클라이언트뿐 아니라 다른 컴포넌트들도 모두 API Server와 대화한다.
 
 > 여기서의 API 요청이란 Kubernetes API 를 말하며, 파드의 컨테이너 내부의 어플리케이션으로 전달되는 API 요청과는 별개다.
 
-### 2.2 Controller Manager (kube-controller-manager)
+### Controller Manager (kube-controller-manager)
 
 쿠버네티스의 자동화 엔진 역할을 한다. Deployment, ReplicaSet, Node 상태 등 다양한 리소스의 목표 상태와 실제 상태를 비교하고, 필요할 경우 새로운 Pod을 만들거나, 장애 난 노드를 대체하는 등의 작업을 수행한다.
 
 컨트롤러는 **"무언가가 잘못됐을 때 자동으로 복구해주는 메커니즘"**을 담당한다.
 
-### 2.3 Scheduler (kube-scheduler)
+### Scheduler (kube-scheduler)
 
 스케줄러는 새로운 Pod을 어떤 워커 노드에 배치할지 결정하는 역할을 한다. 노드의 자원 사용량, 레이블, 어피니티 등의 조건을 고려해 가장 적절한 위치를 찾는다.
 
@@ -64,7 +64,7 @@ Kubernetes 클러스터는 하나 이상의 **마스터 노드(Control Plane)**�
 
 나는 CPU의 스케쥴링과 비슷한 의미로 이해했다.
 
-### 2.4 etcd
+### etcd
 
 etcd는 Kubernetes의 상태 정보를 저장하는 고가용성 키-값 저장소다. 모든 클러스터의 객체 정보(Pod, Service, ConfigMap 등)는 etcd에 저장되며, 이 데이터는 영속적이고 일관성을 보장해야 하므로 매우 중요하다.
 
@@ -72,18 +72,18 @@ etcd는 Kubernetes의 상태 정보를 저장하는 고가용성 키-값 저장�
 
 ## ⚙️ 워커 노드의 구성 요소
 
-### 3.1 kubelet
+### kubelet
 
 워커 노드에서 동작하는 핵심 에이전트로, Pod이 정상적으로 실행되고 있는지 감시하고, API Server로부터 받은 명령에 따라 컨테이너를 실행하거나 종료시킨다.
 
 > **"이 Pod 잘 실행 중이야? 문제가 생기진 않았어?"**  
 > → kubelet이 계속 확인한다.
 
-### 3.2 컨테이너 런타임
+### 컨테이너 런타임
 
 컨테이너를 실제로 실행해주는 프로그램이다. 예전에는 Docker가 주로 쓰였지만, 지금은 containerd, CRI-O 같은 런타임이 더 표준적으로 사용된다. Kubernetes는 CRI(Container Runtime Interface)를 통해 다양한 런타임을 추상화하여 지원한다.
 
-#### 3.2.1 왜 Docker 런타임 지원이 중단(deprecate) 되었나?
+#### 왜 Docker 런타임 지원이 중단(deprecate) 되었나?
 
 Kubernetes는 컨테이너를 실행하기 위해 "컨테이너 런타임"이라는 소프트웨어와 통신한다.
 
@@ -91,7 +91,7 @@ Kubernetes는 컨테이너를 실행하기 위해 "컨테이너 런타임"이라
 
 Dockershim을 유지·관리하는 부담이 커지고, containerd, CRI-O처럼 CRI를 직접 지원하는 런타임이 발전하면서 Kubernetes는 Docker 런타임 지원을 중단하기로 했다고 한다.
 
-#### 3.2.2 엥, 그럼 Docker는 Kubernetes에서 완전히 안쓰이나?
+#### 엥, 그럼 Docker는 Kubernetes에서 완전히 안쓰이나?
 
 당연히 아니다.
 
@@ -101,7 +101,7 @@ Docker로 만든 이미지(Dockerfile로 빌드한 결과)는 표준인 OCI(Open
 
 즉, 이미지 빌드와 개발에는 Docker를 계속 쓰고, Kubernetes 노드에서 컨테이너를 실행하는 런타임만 containerd, CRI-O 등으로 바뀐 것이다.
 
-### 3.3 kube-proxy
+### kube-proxy
 
 각 노드에서 네트워크 트래픽을 적절한 Pod으로 라우팅해주는 역할을 한다. 예를 들어, Service를 통해 들어온 요청을 실제 Pod으로 전달할 때 경로를 조절해주는 게 kube-proxy다. iptables 또는 IPVS를 사용해 내부 라우팅 테이블을 설정한다.
 
@@ -123,7 +123,7 @@ kube-proxy는 Kubernetes API 서버를 감시하여 서비스나 엔드포인트
 
 근데 컨트롤 플레인은 왜 3개를 많이 사용할까?
 
-### 4.1 마스터노드(컨트롤 플레인)의 확장시 홀수 개가 권장 된다
+### 마스터노드(컨트롤 플레인)의 확장시 홀수 개가 권장 된다
 
 > **"홀수 개의 컨트롤 플레인 노드를 사용해 Split-Brain과 같은 네트워크 분할 문제를 방지하라"** – Kubernetes 공식 문서
 
@@ -136,7 +136,7 @@ Kubernetes 클러스터에서 컨트롤 플레인을 홀수 개로 구성하는 
 - **etcd**: 앞서 설명했듯이 클러스터의 모든 상태 정보(파드, 서비스, 노드 등)를 저장하는 분산 키-값 저장소이다.
 - **RAFT 알고리즘**: etcd가 데이터 일관성을 유지하기 위해 사용하는 합의(Consensus) 알고리즘이다.
 
-### 4.1.1 RAFT 알고리즘의 기본 원리
+### RAFT 알고리즘의 기본 원리
 
 RAFT는 분산 시스템에서 여러 노드가 일관된 결정을 내리기 위한 합의 알고리즘이다.
 
@@ -148,7 +148,7 @@ RAFT는 분산 시스템에서 여러 노드가 일관된 결정을 내리기 �
 
 투표 시, 후보자의 로그가 자신보다 최신일 때만 투표한다. 최초 클러스터 구성 시 모든 노드가 처음 시작하면 로그가 동일하게 비어 있는데, 각 노드의 Election Timeout 은 랜덤하게 설정되어 가장 짧은 타임아웃을 가진 노드가 먼저 후보자가 되어 자기 자신에게 투표하고, 다른 노드들에게 투표를 요청한다.
 
-### 4.1.2 홀수 구성이 필수적인 이유
+### 홀수 구성이 필수적인 이유
 
 #### (1) 과반수(Quorum) 확보
 
