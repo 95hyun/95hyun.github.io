@@ -19,14 +19,18 @@
 # in the templates via {{ site.myvariable }}.
 
 title: 95hyun의 기술블로그
-email: your-email@example.com
+email: blog@95hyun.dev
 description: >- # this means to ignore newlines until "baseurl:"
   개발자 95hyun의 기술블로그입니다. 프로그래밍, 개발 경험, 그리고 새로운 기술들에 대한 
-  내용을 다룹니다.
+  내용을 다룹니다. JavaScript, Python, React, Node.js 등 다양한 기술 스택을 다룹니다.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://95hyun.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  95hyun
+
+# SEO settings
+author: 95hyun
+tagline: 개발자의 기술 여행기
 
 # Build settings
 theme: jekyll-theme-chirpy
@@ -61,9 +65,23 @@ lang: ko-KR
 # Social settings
 social:
   name: 95hyun
-  email: your-email@example.com
+  email: blog@95hyun.dev
   links:
     - https://github.com/95hyun
+
+# SEO & Social Media
+twitter:
+  username: 
+  
+# Default image for social media sharing
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      image: /assets/img/default-post-image.jpg
+      comments: true
+      toc: true
 
 # Web analytics
 google_analytics:
