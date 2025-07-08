@@ -18,19 +18,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 95hyun의 기술블로그
-email: blog@95hyun.dev
+title: helloresekai
+email: chillmyh@kakao.com
 description: >- # this means to ignore newlines until "baseurl:"
-  개발자 95hyun의 기술블로그입니다. 프로그래밍, 개발 경험, 그리고 새로운 기술들에 대한 
-  내용을 다룹니다. JavaScript, Python, React, Node.js 등 다양한 기술 스택을 다룹니다.
+  뉴비의 기술 블로그
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://95hyun.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
-github_username:  95hyun
+github_username: 95hyun
 
 # SEO settings
 author: 95hyun
-tagline: 개발자의 기술 여행기
+tagline: 뉴비의 기술 블로그
 
 # Build settings
 theme: jekyll-theme-chirpy
@@ -65,7 +64,7 @@ lang: ko-KR
 # Social settings
 social:
   name: 95hyun
-  email: blog@95hyun.dev
+  email: chillmyh@kakao.com
   links:
     - https://github.com/95hyun
 
