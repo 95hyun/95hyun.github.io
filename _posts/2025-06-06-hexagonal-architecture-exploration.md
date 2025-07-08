@@ -62,6 +62,7 @@ Persistence Layer (Repository)
 
 ## 🔧 아키텍처 구성 설명 (중심 → 바깥 방향)
 ![아키텍처](/assets/img/posts/2025-06-06-hexagonal-architecture-exploration/1.png)
+
 헥사고날 아키텍처는 이름처럼 육각형처럼 표현되지만, 실제로는 "레이어 구조"에 가깝다. 다만 레이어 간의 방향성과 의존성을 정확히 정의한다는 데 핵심이 있다.
 
 ### 4.1 중심 - Domain Core (도메인)
