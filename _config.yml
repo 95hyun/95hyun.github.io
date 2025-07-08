@@ -76,8 +76,8 @@ categories:
     - Infrastructure
     - Git
   Experience:
-    - 부트캠프
-    - 대외활동
+    - bootcamp
+    - activity
   AI-Tech:
     - GenAI
 
@@ -104,7 +104,7 @@ defaults:
       path: ""
       type: posts
     values:
-      image: /assets/img/default-post-image.jpg
+      image: /assets/img/og_card.png
       comments: true
       toc: true
 
