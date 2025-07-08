@@ -81,7 +81,7 @@ toc: true
 
 # Comments
 comments:
-  active: giscus
+  provider: giscus
   giscus:
     repo: 95hyun/95hyun.github.io
     repo_id: R_kgDOPIfawA
@@ -90,9 +90,7 @@ comments:
     mapping: pathname
     strict: 0
     reactions_enabled: 1
-    emit_metadata: 0
     input_position: bottom
-    theme: noborder_light
     lang: ko
   
 # Math
