@@ -40,6 +40,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-archives
 
+# Collections
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
 # Chirpy specific settings
 paginate: 10
 paginate_path: "/posts/page:num/"
