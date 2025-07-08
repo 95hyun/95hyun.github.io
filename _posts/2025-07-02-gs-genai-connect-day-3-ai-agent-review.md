@@ -2,7 +2,7 @@
 layout: post
 title: "GS GenAI Connect Day #3 : AI 에이전트의 현재와 미래 후기"
 date: 2025-07-02 09:00:00 +0900
-categories: [Experience]
+categories: [Experience, Activity]
 tags: [ai, agent, mcp, github, copilot, conference, gs, genai, activity]
 toc: true
 toc_sticky: true
